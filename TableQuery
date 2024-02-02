@@ -1,0 +1,30 @@
+//회원 테이블
+create table MEMBER1(
+name varchar2(20),
+id varchar2(30) primary key,
+password varchar2(20),
+email varchar2(20),
+islogin number(1)
+CONSTRAINT check1 check(islogin between 0 and 1));
+
+//플레이어 테이블
+create table player(
+PlayerId varchar2(30) primary key,
+MemberId varchar2(30),
+playerLevel number(3),
+HP number(4),
+maxhp Number(4),
+ATK	number(4),	
+DEF	number(4),
+EXP	number(4),
+Gold number(4),
+foreign key (Memberid) references Member1(id));	
+
+//적 테이블
+create table enemy(
+EnemyId varchar2(20) primary key,			
+MaxHp number(4),
+HP Number(4),										
+ATK	Number(4),					
+DEF Number(4),					
+GiveEXP Number(4));
